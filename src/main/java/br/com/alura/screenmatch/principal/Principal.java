@@ -6,7 +6,12 @@ import br.com.alura.screenmatch.model.DadosTemporada;
 import br.com.alura.screenmatch.model.Serie;
 import br.com.alura.screenmatch.service.ConsumoApi;
 import br.com.alura.screenmatch.service.ConverteDados;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectWriter;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.Writer;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -87,8 +92,20 @@ public class Principal {
         series = dadosSeries.stream()
                 .map(d -> new Serie(d))
                 .collect(Collectors.toList());
-        series.stream()
-                .sorted(Comparator.comparing(Serie::getGenero))
-                .forEach(System.out::println);
+//        series.stream()
+//                .sorted(Comparator.comparing(Serie::getGenero))
+//                .forEach(System.out::println);
+        ObjectMapper objectMapper = new ObjectMapper();
+        ObjectWriter writer = objectMapper.writerWithDefaultPrettyPrinter();
+
+        try {
+            // Converter a lista de séries ordenadas em JSON e escrever no arquivo
+            writer.writeValue(new File("output.json"), series);
+
+            System.out.println("JSON escrito com sucesso no arquivo.");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
+
 }
