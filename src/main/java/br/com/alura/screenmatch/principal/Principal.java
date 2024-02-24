@@ -4,6 +4,7 @@ import br.com.alura.screenmatch.model.Categoria;
 import br.com.alura.screenmatch.model.DadosSerie;
 import br.com.alura.screenmatch.model.DadosTemporada;
 import br.com.alura.screenmatch.model.Serie;
+import br.com.alura.screenmatch.repository.SerieRepository;
 import br.com.alura.screenmatch.service.ConsumoApi;
 import br.com.alura.screenmatch.service.ConverteDados;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -26,6 +27,12 @@ public class Principal {
     private final String ENDERECO = "https://www.omdbapi.com/?t=";
     private final String API_KEY = "&apikey=6585022c";
     private List<DadosSerie> dadosSeries = new ArrayList<>();
+
+    SerieRepository repositorio;
+
+    public Principal(SerieRepository repositorio) {
+        this.repositorio = repositorio;
+    }
 
     public void exibeMenu() {
         var opcao = -1;
@@ -63,7 +70,9 @@ public class Principal {
 
     private void buscarSerieWeb() {
         DadosSerie dados = getDadosSerie();
-        dadosSeries.add(dados);
+        Serie serie = new Serie(dados);
+        //dadosSeries.add(dados);
+        repositorio.save(serie);
         System.out.println(dados);
     }
 
@@ -92,20 +101,9 @@ public class Principal {
         series = dadosSeries.stream()
                 .map(d -> new Serie(d))
                 .collect(Collectors.toList());
-//        series.stream()
-//                .sorted(Comparator.comparing(Serie::getGenero))
-//                .forEach(System.out::println);
-        ObjectMapper objectMapper = new ObjectMapper();
-        ObjectWriter writer = objectMapper.writerWithDefaultPrettyPrinter();
-
-        try {
-            // Converter a lista de séries ordenadas em JSON e escrever no arquivo
-            writer.writeValue(new File("output.json"), series);
-
-            System.out.println("JSON escrito com sucesso no arquivo.");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        series.stream()
+                .sorted(Comparator.comparing(Serie::getGenero))
+                .forEach(System.out::println);
     }
 
 }

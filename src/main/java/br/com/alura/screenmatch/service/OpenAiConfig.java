@@ -2,7 +2,7 @@ package br.com.alura.screenmatch.service;
 
 public class OpenAiConfig {
 
-    private static final String API_KEY = "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";
+    private static final String API_KEY = System.getenv("OPENAI_API_KEY");
 
     public static String getApiKey() {
         if (API_KEY == null || API_KEY.isEmpty()) {
