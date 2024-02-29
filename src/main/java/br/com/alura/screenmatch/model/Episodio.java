@@ -85,16 +85,21 @@ public class Episodio {
         this.id = id;
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public Serie getSerie() {
+        return serie;
+    }
+
     public void setSerie(Serie serie) {
         this.serie = serie;
     }
 
     @Override
     public String toString() {
-        return "temporada=" + temporada +
-                ", titulo='" + titulo + '\'' +
-                ", numeroEpisodio=" + numeroEpisodio +
-                ", avaliacao=" + avaliacao +
-                ", dataLancamento=" + dataLancamento ;
+        return String.format(" Temporada %d, Episódio %d: '%s' - Avaliação: %.1f, Lançamento: %s \n",
+                getTemporada(), getNumeroEpisodio(), getTitulo(), getAvaliacao(), getDataLancamento());
     }
 }
