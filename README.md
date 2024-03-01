@@ -10,7 +10,11 @@ Este projeto teve origem em um contexto acadêmico como parte de um curso ou pro
     em todos os métodos da minha aplicação, note que 
     foram tratados erros de input e a aplicação é capaz de 
     identificar séries até quando se digita diferente do título.
-[testevideo.mp4](..%2F..%2FUsers%2Fvinic%2FVideos%2Ftestevideo.mp4)
+
+
+https://github.com/vinimeneses/screenmatch/assets/142733323/a105999b-1666-414b-9cc9-7833c6a4d200
+
+
 
 
 
