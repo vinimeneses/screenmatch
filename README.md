@@ -1,6 +1,6 @@
 # Screenmatch
 
-Projeto de uma aplicação que fornece uma plataforma de séries fictícios "Screenmatch", utilizando a Api da **Omdb** e **OpenAI**, onde foram feitas buscas dos dados de séries e traduções de sinopse, respectivamente. Screenmatch oferece funcionalidades relacionadas à busca de séries e episódios, implementando diversos métodos para interação com um banco de dados PostgreSQL.
+Este é um projeto de uma aplicação que fornece uma plataforma de séries fictícios "Screenmatch", utilizando a Api da **Omdb** e **OpenAI**, onde foram feitas buscas dos dados de séries e traduções de sinopse, respectivamente. Screenmatch oferece funcionalidades relacionadas à busca de séries e episódios, implementando diversos métodos para interação com um banco de dados PostgreSQL.
 
 Este projeto teve origem em um contexto acadêmico como parte de um curso e projeto de estudo. Embora tenha começado com uma base acadêmica, vale ressaltar que foram realizadas modificações e melhorias únicas que fui tendo ao longo do curso.
 
