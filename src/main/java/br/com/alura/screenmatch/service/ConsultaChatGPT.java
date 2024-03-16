@@ -12,7 +12,7 @@ public class ConsultaChatGPT {
             CompletionRequest requisicao = CompletionRequest.builder()
                     .model("gpt-3.5-turbo-instruct")
                     .prompt("traduza para o português o texto: " + texto)
-                    .maxTokens(1000)
+                    .maxTokens(4000)
                     .temperature(0.7)
                     .build();
 
